@@ -1,7 +1,10 @@
+import Nabvar from "./components/Navbar/Navbar";
+
 function App() {
   return (
     <div className="miApp">
-      <h1>Esta es mi primer app en React.Js</h1>
+       <Nabvar/>
+      <h1>Music Shop</h1>
     </div>
   );
 }

@@ -1,3 +1,31 @@
-h1 {
-    color: blue;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+.header{
+    background-color: black;
+    font-size: 1rem;
+    color: aliceblue;
+    justify-content: flex-end;
+    display: flex;
+
+}
+h1{
+    color: black;
+    text-align: center;
+    font-size: 3rem;
+}
+li{
+    display: block;
+    padding: 15px 20px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.header .logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+
+
