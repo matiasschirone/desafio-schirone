@@ -9,7 +9,9 @@ export default function Nabvar() {
 
     return (
        <header className="header">
-           <div className="logo">logo</div>
+           <div className="logo">
+               <img src="imagen/logo.png" alt="logo"/>
+           </div>
            <ul className="nav-links" style={linkStyle}>
                <li>Inicio</li>
                <li>Productos</li>
