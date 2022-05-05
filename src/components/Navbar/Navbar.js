@@ -1,3 +1,5 @@
+import CartWidget from "../CartWidget/CartWidget";
+
 export default function Nabvar() {
 
     const linkStyle={
@@ -18,6 +20,9 @@ export default function Nabvar() {
                <li>Sobre Nosotros</li>
                <li>Contacto</li>
            </ul>
+       <CartWidget count={0}/>
+    
+     
        </header>
     );
 }
