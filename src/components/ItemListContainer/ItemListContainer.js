@@ -1,4 +1,4 @@
-export default function ItemListContainer(){
+export default function ItemListContainer({title}){
     const ItemStyle={
         margin: 10,
         padding:10,
@@ -8,7 +8,7 @@ export default function ItemListContainer(){
     }
     return(
         <div style={ItemStyle}>
-            <h3>El carrito esta vacio</h3>
+            <h3>{title}</h3>
         </div>
     )
 }
