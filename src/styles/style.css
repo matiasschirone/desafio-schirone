@@ -30,3 +30,10 @@ li{
 MdOutlineShoppingCart{
     width: auto;
 }
+.add-button{
+    background-color: rgb(27, 27, 27);
+    color: aliceblue;
+}
+button{
+    background-color: rgb(214, 28, 28);
+}

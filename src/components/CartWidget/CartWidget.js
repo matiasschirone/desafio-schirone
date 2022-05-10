@@ -7,8 +7,8 @@ function CartWidget({count}){
     }
     return(
         <div style={CartStyle}>
-           <MdOutlineShoppingCart/>
-           {count} 
+           <MdOutlineShoppingCart/> 
+           {count}
         </div>
     )
 }
