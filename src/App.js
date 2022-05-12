@@ -7,7 +7,7 @@ function App() {
     <div className="miApp">
        <Nabvar/>
        <h1>Music Shop</h1>
-       <ItemListContainer title="el carrito esta vacio"/>
+       <ItemListContainer title="Lista de Productos"/>
     </div>
   );
 }
