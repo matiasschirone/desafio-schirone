@@ -3,33 +3,51 @@ import axios from "axios"
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 
+
+
 const ItemDetailContainer = () => {
     const [items,SetItem]= useState([])
     const [cargando, setCargando]= useState(false)
 
-    useEffect(() => {
+    const getItems=()=>{
+        axios.get('https://api.mercadolibre.com/sites/MLA/search?q=guitarra')
+        .then((response )=> SetItem(response.data.results[6]))
+        .catch((error)=>console.log(error))
+    }
+
+    /*useEffect(() => {
     axios.get('https://api.mercadolibre.com/sites/MLA/search?q=guitarra')
-        .then((response )=> SetItem(response.data.results[3,6]))
+        .then((response )=> SetItem(response.data.results[6]))
         .catch((error)=>console.log(error))
         .finally(()=> setCargando(false))
-    },[])
-    /*const getProducts = new Promise ((resolve, reject) => {
+    },[])*/
+    const getProducts = new Promise ((resolve, reject) => {
         let condition = true
         setTimeout(()=> {
           if(condition){
-              resolve(SetItem)
+              resolve(getItems)
           }else{
               reject('Algo salio mal')
           }
         }, 2000)
-    })*/
+    })
 
-    //console.log(item);
+    useEffect(()=>{
+        setCargando(true)
+        getProducts
+        
+        .then((res)=> SetItem(res))
+        .catch((err)=> console.log(err))
+        .finally(()=> setCargando(false))
+    }, [])
+
+
+    console.log(items);
 
     return (
         <div>
             <h3>Producto</h3>
-            <ItemDetail items={items}/>
+           {cargando ? <p>cargando....</p> : <ItemDetail items={items}/>}
         </div>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import AddButton from '../AddButton/AddButton'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
+import ItemDetail from '../ItemDetail/ItemDetail'
 
-export default function Item2({product }) {
+export default function Item2({product}) {
     //console.log(producto)
     return (
         <div className="container">
