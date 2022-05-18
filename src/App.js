@@ -1,15 +1,16 @@
 import React from "react";
-import Nabvar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
     <div className="miApp">
-       <Nabvar/>
+       <Navbar/>
        <h1>Music Shop</h1>
-       <ItemListContainer title="Lista de Productos"/>
        <ItemDetailContainer/>
+       {/*<ItemListContainer title="Lista de Productos"/>*/}
+       
     </div>
   );
 }

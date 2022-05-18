@@ -2,8 +2,9 @@ import { Card, Button } from 'react-bootstrap'
 import AddButton from '../AddButton/AddButton'
 import { products } from '../data/productos'
 
+
 export default function Item({ producto }) {
-    console.log(producto)
+    //console.log(producto)
     return (
         <div className="container">
             <div className="row">

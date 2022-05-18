@@ -1,42 +1,35 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { ItemDetail } from "../ItemDetail/ItemDetail"
+import ItemDetail from "../ItemDetail/ItemDetail"
 
 
 const ItemDetailContainer = () => {
+    const [items,SetItem]= useState([])
+    const [cargando, setCargando]= useState(false)
 
-    const [itemProduct, setItemProduct] = useState([])
+    useEffect(() => {
+    axios.get('https://api.mercadolibre.com/sites/MLA/search?q=guitarra')
+        .then((response )=> SetItem(response.data.results[3,6]))
+        .catch((error)=>console.log(error))
+        .finally(()=> setCargando(false))
+    },[])
+    /*const getProducts = new Promise ((resolve, reject) => {
+        let condition = true
+        setTimeout(()=> {
+          if(condition){
+              resolve(SetItem)
+          }else{
+              reject('Algo salio mal')
+          }
+        }, 2000)
+    })*/
 
+    //console.log(item);
 
-    const getItem = () => {
-        axios.get("https://api.mercadolibre.com/sites/MLA/search?q=banjo").then((res) => {
-             setItemProduct(res.data.results[5])
-         })
-     }
-
-     const newItem = new Promise ((resolve, reject) => {
-         let condition = true
-         setTimeout(()=>{
-             if(condition){
-                 resolve(getItem)
-             }else{
-                 reject('no me sale')
-             }
-         },3000)
-     })
-
-     //console.log(newItem)
-
-    useEffect(()=>{
-        newItem
-        .then((res)=> setItemProduct(res))
-        .catch((err)=> console.log(err))
-    }, []) 
-
-    return(
+    return (
         <div>
-        <h3></h3>
-        <ItemDetail itemProduct={itemProduct}/>
+            <h3>Producto</h3>
+            <ItemDetail items={items}/>
         </div>
     )
 }
