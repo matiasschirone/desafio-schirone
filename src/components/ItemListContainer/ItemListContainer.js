@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddButton from "../AddButton/AddButton"
 import { ItemList } from "../ItemList/ItemList";
-import { products } from "../data/productos";
+import { getProducts } from "../data/productos";
 import axios from "axios";
 
 export default function ItemListContainer({ title }) {
@@ -17,27 +17,15 @@ export default function ItemListContainer({ title }) {
         justifycontent: "space-between",
     }
 
-    const getProducts = new Promise ((resolve, reject) => {
-        let condition = true
-        setTimeout(()=> {
-          if(condition){
-              resolve(products)
-          }else{
-              reject('Algo salio mal')
-          }
-        }, 2000)
-    })
-
     
     useEffect(()=>{
         setCargando(true)
-        getProducts
-        
+        getProducts      
         .then((res)=> setProductList(res))
         .catch((err)=> console.log(err))
         .finally(()=> setCargando(false))
     }, [])
-
+console.log(productList)
     
     return (
         <div style={ItemStyle}>

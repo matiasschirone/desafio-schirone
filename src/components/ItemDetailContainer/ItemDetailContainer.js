@@ -1,53 +1,26 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import ItemDetail from "../ItemDetail/ItemDetail"
-
-
-
+import { getProducts } from "../data/productos"
 
 const ItemDetailContainer = () => {
-    const [items,SetItem]= useState([])
-    const [cargando, setCargando]= useState(false)
+    const [productDetail,setProductDetail]= useState({})
 
-    const getItems=()=>{
-        axios.get('https://api.mercadolibre.com/sites/MLA/search?q=guitarra')
-        .then((response )=> SetItem(response.data.results[6]))
-        .catch((error)=>console.log(error))
-    }
-
-    /*useEffect(() => {
-    axios.get('https://api.mercadolibre.com/sites/MLA/search?q=guitarra')
-        .then((response )=> SetItem(response.data.results[6]))
-        .catch((error)=>console.log(error))
-        .finally(()=> setCargando(false))
-    },[])*/
-    const getProducts = new Promise ((resolve, reject) => {
-        let condition = true
-        setTimeout(()=> {
-          if(condition){
-              resolve(getItems)
-          }else{
-              reject('Algo salio mal')
-          }
-        }, 2000)
-    })
+    const [carganding, setCarganding]= useState(false)
 
     useEffect(()=>{
-        setCargando(true)
+        setCarganding(true)
         getProducts
-        
-        .then((res)=> SetItem(res))
+        .then((res)=> setProductDetail(res.find((item) => item.id === 4)))
         .catch((err)=> console.log(err))
-        .finally(()=> setCargando(false))
+        .finally(()=> setCarganding(false))
     }, [])
-
-
-    console.log(items);
+    console.log(productDetail);
 
     return (
         <div>
             <h3>Producto</h3>
-           {cargando ? <p>cargando....</p> : <ItemDetail items={items}/>}
+            {carganding ? <p>carganding....</p> : <ItemDetail productDetail={productDetail}/>}
         </div>
     )
 }

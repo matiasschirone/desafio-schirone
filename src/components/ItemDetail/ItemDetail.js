@@ -2,26 +2,24 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import AddButton from '../AddButton/AddButton'
 
-const ItemDetail = ({ items }) => {
-  console.log(items)
+const ItemDetail = ({productDetail}) => {
+  console.log(productDetail)
   return (
-
-    <div>
+    
       <div classname="container">
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="http://http2.mlstatic.com/D_759352-MLA47962731957_102021-I.jpg" alt={items.Title} />
+          <Card.Img variant="top" src={productDetail.imagen} alt={productDetail.nombre} />
           <Card.Body>
-            <Card.Title>{items.title}</Card.Title>
+            <Card.Title>{productDetail.nombre}</Card.Title>
             <Card.Text>
-              <p>{items.price}</p>
+              <p>nombre{productDetail.nombre}</p>
+              <p>precio{productDetail.precio}</p>
             </Card.Text>
             <Button variant="primary">comprar</Button>
           </Card.Body>
         </Card>
       </div>
-    </div>
-
-
+   
   )
 }
 
