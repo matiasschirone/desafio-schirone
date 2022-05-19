@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AddButton from "../AddButton/AddButton"
 import { ItemList } from "../ItemList/ItemList";
 import { getProducts } from "../data/productos";
-import axios from "axios";
 
 export default function ItemListContainer({ title }) {
-
     const [productList, setProductList]= useState([])
-
     const [cargando, setCargando]= useState(false)
 
     const ItemStyle = {
@@ -17,7 +13,6 @@ export default function ItemListContainer({ title }) {
         justifycontent: "space-between",
     }
 
-    
     useEffect(()=>{
         setCargando(true)
         getProducts      
@@ -25,7 +20,7 @@ export default function ItemListContainer({ title }) {
         .catch((err)=> console.log(err))
         .finally(()=> setCargando(false))
     }, [])
-console.log(productList)
+//console.log(productList)
     
     return (
         <div style={ItemStyle}>

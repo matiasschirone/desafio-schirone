@@ -14,7 +14,7 @@ export const ItemList = ({ productList }) => {
   return (
     <>
       <div style={CardStyle}>
-        {productList.map((producto, id) => <Item producto={producto} key={producto.id} />)}
+        {productList.map((producto) => <Item producto={producto} key={producto.id} />)}
       </div>
     </>
   )

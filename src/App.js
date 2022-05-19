@@ -2,16 +2,22 @@ import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import {browserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from "./Pages/home";
 
 function App() {
   return (
-    <div className="miApp">
+    <BrowserRouter>
        <Navbar/>
-       <h1>Music Shop</h1>
-      <ItemListContainer title="Lista de Productos"/>
-      <ItemDetailContainer/>
-    </div>
+       <Routes>
+         <Route path="/"element={<Home/>}/>
+         <Route path="/productos"element={<ItemListContainer title="Lista de Productos"/>}/>
+         <Route path="/detalle"element={<ItemDetailContainer/>}/>
+       </Routes>
+       
+      
+      
+    </BrowserRouter>
   );
 }
 

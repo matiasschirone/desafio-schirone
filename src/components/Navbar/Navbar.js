@@ -1,6 +1,6 @@
 import React from "react";
 import CartWidget from "../CartWidget/CartWidget";
-
+import { Link } from "react-router-dom";
 
 export default function Nabvar() {
 
@@ -19,10 +19,18 @@ export default function Nabvar() {
                     <img src="imagen/logo.png" alt="logo" />
                 </div>
                 <ul className="nav-links" style={linkStyle}>
-                    <li>Inicio</li>
-                    <li>Productos</li>
-                    <li>Sobre Nosotros</li>
-                    <li>Contacto</li>
+                    <li>
+                       <Link className="nav-link active" to="/">Inicio</Link> 
+                    </li>
+                    <li>
+                    <Link className="nav-link active" to="/productos"> Productos</Link>
+                    </li>
+                    <li>
+                    <Link className="nav-link active" to="/"> Sobre Nosotros</Link>
+                    </li>
+                    <li>
+                    <Link className="nav-link active" to="/"> Contacto</Link>
+                    </li>
                 </ul>
 
                 <CartWidget count={0} />
