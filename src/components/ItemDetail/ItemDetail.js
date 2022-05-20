@@ -1,9 +1,15 @@
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 import AddButton from '../AddButton/AddButton'
+import { useNavigate } from 'react-router-dom'
+import ItemCounter from '../ItemCounter/ItemCounter'
 
 const ItemDetail = ({item}) => {
-  const {nombre, imagen, precio, categoria} = item
+  const {nombre, imagen, precio, stock, categoria} = item
+  const volver = useNavigate()
+  const onAdd = () => {
+    console.log('agregado al carrito')
+  }
   return (
       <div className="container">
         <Card style={{ width: '18rem' }}>
@@ -17,6 +23,8 @@ const ItemDetail = ({item}) => {
               {precio}
             </Card.Text>
           </Card.Body>
+          <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>
+          <button btn btm-info onClick={()=>volver("/productos")}>volver a Productos</button>
         </Card>
       </div>
   )

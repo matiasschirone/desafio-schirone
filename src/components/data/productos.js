@@ -4,7 +4,7 @@ export const products = [
     "nombre": "cort stratocaster",
     "stock": 10,
     "precio": 75800,
-    "imagen": "imagen/descarga1.jpg",
+    "imagen": "/imagen/descarga1.jpg",
     "categoria": "guitarra"
   },
   {
@@ -12,7 +12,7 @@ export const products = [
     "nombre": "Fender telecarter",
     "stock": 3,
     "precio": 450000,
-    "imagen": "imagen/images2.jpg",
+    "imagen": "/imagen/images2.jpg",
     "categoria": "guitarra"
   },
   {
@@ -20,7 +20,7 @@ export const products = [
     "nombre": "Gibson lp",
     "stock": 10,
     "precio": 450000,
-    "imagen": "imagen/images3.jpg",
+    "imagen": "/imagen/images3.jpg",
     "categoria": "guitarra"
   },
   {
@@ -28,7 +28,7 @@ export const products = [
     "nombre": "Ltd",
     "stock": 9,
     "precio": 120000,
-    "imagen": "imagen/images.jpg",
+    "imagen": "/imagen/images.jpg",
     "categoria": "guitarra"
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     "nombre": "Amplificador Marshall",
     "stock": 5,
     "precio": 125000,
-    "imagen": "imagen/descarga2.jpg",
+    "imagen": "/imagen/descarga2.jpg",
     "categoria": "amplificador"
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     "nombre": "Head rush",
     "stock": 3,
     "precio": 120000,
-    "imagen": "imagen/descarga5.jpg",
+    "imagen": "/imagen/descarga5.jpg",
     "categoria": "pedalera"
   },
   {
@@ -52,15 +52,16 @@ export const products = [
     "nombre": "Amplificador Fender 60ac",
     "stock": 8,
     "precio": 90000,
-    "imagen": "imagen/images4.jpg",
-    "categoria": "amplicador"
+    "imagen": "/imagen/images4.jpg",
+    "categoria": "amplicador",
+    "detalle":""
   },
   {
     "id": 8,
     "nombre": "Amplificador Fender 100",
     "stock": 8,
     "precio": 140000,
-    "imagen": "imagen/images6.jpg",
+    "imagen": "/imagen/images6.jpg",
     "categoria": "amplicador"
   }
 ];

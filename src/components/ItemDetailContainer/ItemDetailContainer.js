@@ -12,11 +12,11 @@ const ItemDetailContainer = () => {
     useEffect(()=>{
         setCarganding(true)
         getProducts
-        .then((res)=> setItem(res.find((item) => item.id === id)))
+        .then((res)=> setItem(res.find((item) => item.id === Number(id))))
         .catch((err)=> console.log(err))
         .finally(()=> setCarganding(false))
     }, [])
-    //console.log(item);
+   
 
     return (
         <div>

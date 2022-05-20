@@ -13,7 +13,6 @@ export default function Item({ producto }) {
                     <Card.Title>{producto.nombre}</Card.Title>
                     <Card.Text>{producto.stock}</Card.Text>
                     <Card.Text>{producto.precio}</Card.Text>
-                    <AddButton stock={producto.stock}/>
                 </Card.Body>
            <button className="btn btn.success" onClick={()=>navegar(`/detalle/${producto.id}`)}>Ver mas</button>
         </div>

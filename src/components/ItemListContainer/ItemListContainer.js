@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import { getProducts } from "../data/productos";
+import { useParams } from "react-router-dom";
 
 export default function ItemListContainer({ title }) {
     const [productList, setProductList]= useState([])
     const [cargando, setCargando]= useState(false)
+    const {tipocategoria}= useParams()
 
     const ItemStyle = {
         margin: 10,
@@ -16,10 +18,16 @@ export default function ItemListContainer({ title }) {
     useEffect(()=>{
         setCargando(true)
         getProducts      
-        .then((res)=> setProductList(res))
+        .then((res)=>{
+            if(!tipocategoria){
+                setProductList(res)
+            }else{
+                setProductList(res.filter((prod)=>prod.categoria === tipocategoria))
+            }
+        }) 
         .catch((err)=> console.log(err))
         .finally(()=> setCargando(false))
-    }, [])
+    }, [tipocategoria])
 //console.log(productList)
     
     return (
