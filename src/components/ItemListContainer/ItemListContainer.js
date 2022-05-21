@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 export default function ItemListContainer({ title }) {
     const [productList, setProductList]= useState([])
     const [cargando, setCargando]= useState(false)
-    const {id}= useParams()
+    const {categoria} = useParams()
 
     const ItemStyle = {
         margin: 10,
@@ -19,15 +19,15 @@ export default function ItemListContainer({ title }) {
         setCargando(true)
         getProducts      
         .then((res)=>{
-            if(!id){
+            if(!categoria){
                 setProductList(res)
             }else{
-                setProductList(res.filter((prod)=>prod.categoria === id))
+                setProductList(res.filter((prod)=>prod.categoria === categoria))
             }
         }) 
         .catch((err)=> console.log(err))
         .finally(()=> setCargando(false))
-    }, [id])
+    }, [categoria])
 console.log(productList)
     
     return (
