@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, span } from 'react-bootstrap'
 
 const ItemCounter = ({stock, initial, onAdd}) => {
     const [contador, setContador]=useState(initial)
@@ -14,7 +14,7 @@ const ItemCounter = ({stock, initial, onAdd}) => {
         }
     }
   return (
-    <div className='d-flex fles-column align-items-center'>
+    <div>
         <div>
             <button className='btn btn-danger' onClick={restar}>-</button>
             <span className='btn btn-light px-5'>{contador}</span>
