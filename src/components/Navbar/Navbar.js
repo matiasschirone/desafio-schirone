@@ -25,15 +25,16 @@ export default function Nabvar() {
         <NavDropdown title="Productos" id="basic-nav-dropdown">
           <Link className="nav-link active" to="/productos">Todos los productos</Link>
           <NavDropdown.Divider />
-          <Link className="nav-link active" to="/productos">Guitarras</Link>
+          <Link className="nav-link active" to="/categoria/:id">Guitarras</Link>
           <NavDropdown.Divider />
-          <Link className="nav-link active" to="/:tipocategoria">Amplificadores</Link>
+          <Link className="nav-link active" to="/categoria/:id">Amplificadores</Link>
           <NavDropdown.Divider />
-          <Link className="nav-link active" to="/categoria">Pedales</Link>
+          <Link className="nav-link active" to="/categoria/:id">Pedales</Link>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
   </Container>
+  <CartWidget count={0} />
 </Navbar>
 
         /*<header className="header">
