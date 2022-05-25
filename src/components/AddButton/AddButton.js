@@ -1,6 +1,10 @@
 import React from "react"
-export default function AddButton({stock}) {
-    const [count, setCount] = React.useState(1)
+import { Button } from "react-bootstrap"
+
+
+export default function AddButton({count, setCount, stock, onSubmit}) {
+
+    //const [count, setCount] = React.useState(1)
 
     const onAdd = () => {
         if(count < stock) {
@@ -22,9 +26,9 @@ export default function AddButton({stock}) {
         )
     }
 
-    const AddButton = () => {
+    const AddButton = ({handleOnSubmit}) => {
         return (
-            <button className="add-button">
+            <button className="add-button" onClick={() => handleOnSubmit()}>
                 añadir al carrito
             </button>
         )
@@ -36,7 +40,7 @@ export default function AddButton({stock}) {
             <StockButton text="-" handleOnclick={onDecrease} />
             <span className="add-button-count">{count}</span>
             <StockButton text="+" handleOnclick={onAdd} />
-            <AddButton />
+            <AddButton handleOnSubmit={onSubmit} />
         </button>
     );
 }
