@@ -53,7 +53,7 @@ export const products = [
     "stock": 8,
     "precio": 90000,
     "imagen": "/imagen/images4.jpg",
-    "categoria": "amplicador",
+    "categoria": "amplificador",
     "detalle":""
   },
   {
@@ -62,7 +62,7 @@ export const products = [
     "stock": 8,
     "precio": 140000,
     "imagen": "/imagen/images6.jpg",
-    "categoria": "amplicador"
+    "categoria": "amplificador"
   }
 ];
 export const getProducts = new Promise((resolve, reject) => {
