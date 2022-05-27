@@ -28,7 +28,7 @@ export default function ItemListContainer({ title }) {
         .catch((err)=> console.log(err))
         .finally(()=> setCargando(false))
     }, [categoria])
-console.log(productList)
+//console.log(productList)
     
     return (
         <div style={ItemStyle}>

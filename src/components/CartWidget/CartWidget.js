@@ -1,7 +1,11 @@
+import React, { useContext } from "react";
 import { MdOutlineShoppingCart} from "react-icons/md";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+
 
 function CartWidget({count}){
+    const {cart} =useContext(CartContext)
     const CartStyle={
         margin: 10,
         padding:10,
@@ -11,7 +15,9 @@ function CartWidget({count}){
         <div style={CartStyle}>
           <Link to="/Cart">
            <MdOutlineShoppingCart/> 
-           {count}
+           <span className="badge">
+               {cart.length}
+           </span>
            </Link>
         </div>
     )

@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
-import AddButton from '../AddButton/AddButton'
 import { useNavigate } from 'react-router-dom'
 import ItemCounter from '../ItemCounter/ItemCounter'
+import { CartContext } from '../context/CartContext'
+
 
 const ItemDetail = ({item}) => {
+  const {addToCart} = useContext(CartContext); 
+
   const {nombre, imagen, precio, stock, categoria} = item
 
   const [goToCart, setGoToCart] = useState(false)
@@ -13,12 +16,12 @@ const ItemDetail = ({item}) => {
 
   const onAdd = (quantityToAdd) => {
 
-    console.log('agregado al carrito')
+    console.log('agregar al carrito el producto')
 
     console.log(quantityToAdd)
 
     setGoToCart(true)
-    
+
   }
   return (
       <div className="container">
@@ -33,7 +36,7 @@ const ItemDetail = ({item}) => {
               {precio}
             </Card.Text>
           </Card.Body>
-          {goToCart ? <Button btn btn-primary>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
+          {goToCart ? <Button btn btn-primary onClick={() => addToCart(item)}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
           <button btn btm-info onClick={()=>volver("/productos")}>volver a Productos</button>
         </Card>
       </div>

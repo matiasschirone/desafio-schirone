@@ -37,3 +37,15 @@ MdOutlineShoppingCart{
 button{
     background-color: rgb(247, 239, 239);
 }
+.badge{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(14, 2, 2);
+    color: rgb(114, 131, 131);
+    border-radius: 50%;
+}
