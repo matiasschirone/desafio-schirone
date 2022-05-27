@@ -7,21 +7,33 @@ const {Provider} = CartContext
 const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
+    //console.log(cart)
+    const addToCart = (item, count) => {
+        if(isInCart(item.id)) {
+          const newCart = cart.map(cartItem => {
+            if(cartItem.id === item.id) {
+              cartItem.quantity++
+            }
+            return cartItem
+          })
+          setCart(newCart)
+        }
+        else {
+          setCart([...cart, {...item, quantity: +count}])
+        }
+      }
 
-    const addToCart = ({item})  =>{
-        setCart([ ...cart, item])
-    }
-
-    const removeFromCart = () =>{
-
+    const removeFromCart = (id) =>{
+        const newCart = cart.filter((carItem) => carItem.id !== id);
+        setCart(newCart)
     }
 
     const deleteAll = () => {
-
+        setCart=([])
     }
 
-    const isInCart = () => {
-
+    const isInCart = (id) => {
+        return cart.find(item => item.id == id)
     }
 
     return(
