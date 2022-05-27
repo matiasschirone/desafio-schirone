@@ -37,7 +37,7 @@ const ItemDetail = ({item}) => {
             </Card.Text>
           </Card.Body>
           {goToCart ? <Button btn btn-primary onClick={() => addToCart(item)}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
-          <button btn btm-info onClick={()=>volver("/productos")}>volver a Productos</button>
+          <Button btn btn-info onClick={()=>volver("/productos")}>volver a Productos</Button>
         </Card>
       </div>
   )
