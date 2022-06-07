@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 
-function CartWidget({count}){
+function CartWidget(){
     const {cart} =useContext(CartContext)
     const CartStyle={
         margin: 10,
