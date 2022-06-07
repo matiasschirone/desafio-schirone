@@ -8,7 +8,7 @@ const Cart = (item) => {
   const [cartListItem, setCartListItem] = useState([])
   const { nombre, imagen, precio } = item
   const volver = useNavigate()
-  const { addToCart, removeFromCart} = useContext(CartContext)
+  const { addToCart, removeFromCart, deleteAll,isInCart} = useContext(CartContext)
 
 
 
