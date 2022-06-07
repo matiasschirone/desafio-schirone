@@ -20,7 +20,7 @@ export default function Nabvar() {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Link className="nav-link active" to="/">Home</Link>
+        <Link className="nav-link active" to="/productos">Home</Link>
         <Link className="nav-link active" to="/">Contacto</Link>
         <NavDropdown title="Productos" id="basic-nav-dropdown">
           <Link className="nav-link active" to="/productos">Todos los productos</Link>

@@ -6,7 +6,7 @@ import { CartContext } from '../context/CartContext'
 
 
 
-const ItemDetail = ({item, cartListItem, setCartListItem}) => {
+const ItemDetail = ({item}) => {
   const {addToCart} = useContext(CartContext); 
 
   const {nombre, imagen, precio, stock, categoria} = item
@@ -22,7 +22,7 @@ const ItemDetail = ({item, cartListItem, setCartListItem}) => {
     console.log(quantityToAdd)
 
     setGoToCart(true)
-     setCartListItem([...cartListItem, item])
+     
 
   }
   return (
