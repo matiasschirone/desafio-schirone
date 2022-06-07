@@ -1,11 +1,13 @@
 import { Button } from 'bootstrap'
 import React, { useContext, useState } from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../components/context/CartContext'
 
 const Cart = (item) => {
   const [cartListItem, setCartListItem] = useState([])
   const { nombre, imagen, precio } = item
+  const volver = useNavigate()
   const { addToCart } = useContext(CartContext)
 
 
@@ -21,11 +23,12 @@ const Cart = (item) => {
           </div>)}
         </ListGroup>
       </div>
-      <div className='calcularProducts'>
+      {/*<div className='calcularProducts'>
         <span className='title'>subtotal</span>
         <span>total</span>
         <Button>terminar compra</Button>
-      </div>
+        <Button btn btn-info onClick={()=>volver("/productos")}>volver a Productos</Button>
+          </div>*/}
     </div>
   )
 }
