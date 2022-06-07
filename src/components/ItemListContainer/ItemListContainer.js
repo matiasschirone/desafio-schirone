@@ -20,8 +20,14 @@ export default function ItemListContainer({ title }) {
         getProducts      
         .then((res)=>{
             if(!categoria){
+                setTimeout(()=>{
+                    setCargando(false);
+                }, 2000);
                 setProductList(res)
             }else{
+                setTimeout(()=>{
+                    setCargando(false);
+                }, 2000);
                 setProductList(res.filter((prod)=>prod.categoria === categoria))
             }
         }) 

@@ -3,9 +3,10 @@ import { Card, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import { CartContext } from '../context/CartContext'
+import Cart from '../../views/Cart/Cart'
 
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({item, cartListItem, setCartListItem}) => {
   const {addToCart} = useContext(CartContext); 
 
   const {nombre, imagen, precio, stock, categoria} = item
@@ -21,6 +22,7 @@ const ItemDetail = ({item}) => {
     console.log(quantityToAdd)
 
     setGoToCart(true)
+     setCartListItem([...cartListItem, item])
 
   }
   return (

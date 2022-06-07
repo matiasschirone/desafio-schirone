@@ -67,13 +67,11 @@ export const products = [
 ];
 export const getProducts = new Promise((resolve, reject) => {
   let condition = true
-  if (condition) {
-    setTimeout(() => {
+  setTimeout(()=>{
+    if(condition){
       resolve(products)
-    }, 2000);
-  } else {
-    reject('no me sale')
-  }
+    }else{
+      reject('Algo salio mal')
+    }
+  }, 2000)
 })
-
-
