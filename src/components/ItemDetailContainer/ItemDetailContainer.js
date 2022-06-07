@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import axios from "axios"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { getProducts } from "../data/productos"
 import { useParams } from "react-router-dom"

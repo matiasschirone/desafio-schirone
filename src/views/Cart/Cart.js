@@ -8,11 +8,12 @@ const Cart = (item) => {
   const [cartListItem, setCartListItem] = useState([])
   const { nombre, imagen, precio } = item
   const volver = useNavigate()
-  const { addToCart, removeFromCart, deleteAll,isInCart} = useContext(CartContext)
+  const { addToCart, removeFromCart} = useContext(CartContext)
 
-
+setCartListItem()
 
   return (
+    <>
     <div className='Cart'>
       <div className='CartProducts'>
         <ListGroup>
@@ -23,7 +24,7 @@ const Cart = (item) => {
           </div>)}
         </ListGroup>
       </div>
-      <div className='calcularProducts'>
+     { /*<div className='calcularProducts'>
         <span className='title'>subtotal</span>
         <span>total</span>
         <Button className='btn btn-danger' onClick={removeFromCart}>-</Button>
@@ -31,8 +32,9 @@ const Cart = (item) => {
         <Button className='btn btn-success' onClick={addToCart}>+</Button>
         <Button>terminar compra</Button>
         <Button btn btn-info onClick={()=>volver("/productos")}>volver a Productos</Button>
-      </div>
+          </div>*/}
     </div>
+    </>
   )
 }
 

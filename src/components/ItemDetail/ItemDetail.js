@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import { CartContext } from '../context/CartContext'
-import Cart from '../../views/Cart/Cart'
+
 
 
 const ItemDetail = ({item, cartListItem, setCartListItem}) => {
