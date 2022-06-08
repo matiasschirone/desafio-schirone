@@ -2,9 +2,9 @@ import React from "react"
 import { Button } from "react-bootstrap"
 
 
-export default function AddButton({count, setCount, stock, onSubmit}) {
+export default function AddButton({stock,onSubmit}) {
 
-    //const [count, setCount] = React.useState(1)
+    const [count, setCount] = React.useState(1)
 
     const onAdd = () => {
         if(count < stock) {
@@ -20,7 +20,7 @@ export default function AddButton({count, setCount, stock, onSubmit}) {
 
     const StockButton = ({ handleOnclick, text }) => {
         return (
-            <button className="stock-button" onClick= {handleOnclick}>
+            <button className="stock-button" onClick= {()=>handleOnclick()}>
                 {text}
             </button>
         )

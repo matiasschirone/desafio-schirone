@@ -49,3 +49,18 @@ button{
     color: rgb(114, 131, 131);
     border-radius: 50%;
 }
+
+cartProducts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+summary{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

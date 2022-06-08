@@ -15,16 +15,19 @@ const ItemDetail = ({item}) => {
 
   const volver = useNavigate()
 
-  const onAdd = (quantityToAdd) => {
+  const [quantity, setQuantity] = useState(0)
 
+  const onAdd = (quantityToAdd) => {
     console.log('agregar al carrito el producto')
 
     console.log(quantityToAdd)
 
+    setQuantity(quantityToAdd)
+    //console.log(item)
     setGoToCart(true)
-     
-
+       
   }
+  
   return (
       <div className="container">
         <Card style={{ width: '18rem' }}>
@@ -38,7 +41,7 @@ const ItemDetail = ({item}) => {
               {precio}
             </Card.Text>
           </Card.Body>
-          {goToCart ? <Button btn btn-primary onClick={() => addToCart(item)}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
+          {goToCart ? <Button btn btn-primary onClick={() => addToCart(item, quantity)}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
           <Button btn btn-info onClick={()=>volver("/productos")}>volver a Productos</Button>
         </Card>
       </div>

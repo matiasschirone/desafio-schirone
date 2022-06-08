@@ -3,7 +3,7 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 import { getProducts } from "../data/productos"
 import { useParams } from "react-router-dom"
 
-const ItemDetailContainer = ({setCartListItem, cartListItem}) => {
+const ItemDetailContainer = () => {
     const [item,setItem]= useState({})
     const [carganding, setCarganding]= useState(false)
     const {id} = useParams()
@@ -20,7 +20,7 @@ const ItemDetailContainer = ({setCartListItem, cartListItem}) => {
     return (
         <div>
             <h3>Producto</h3>
-            {carganding ? <p>carganding....</p> : <ItemDetail item={item} setCartListItem={setCartListItem} cartListItem={cartListItem} />}
+            {carganding ? <p>carganding....</p> : <ItemDetail item={item}/>}
         </div>
     )
 }
