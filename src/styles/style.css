@@ -64,3 +64,9 @@ summary{
     align-items: center;
     align-content: center;
 }
+RiDeleteBin6Line{
+    width: auto;
+    height: auto;
+    color: rgb(11, 12, 12);
+    background-color: blue;
+}
