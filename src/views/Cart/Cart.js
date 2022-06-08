@@ -11,9 +11,22 @@ const Cart = (item) => {
 
   const [total, setTotal] = useState()
 
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'increment':
+        return {addToCart};
+      case 'decrement':
+        return {removeFromCart};
+      default:
+        throw new Error();
+    }
+  }
+  
+
   useEffect(() => {
     setTotal(cart.reduce((acc, item) => acc + item.precio, 0))
   }, [cart])
+  
 
 
   return (
@@ -25,6 +38,12 @@ const Cart = (item) => {
             <Col md={2}>{item.imagen}</Col>
             <Col md={2}>{item.nombre}</Col>
             <Col md={2}>{item.precio}</Col>
+            <Col md={2}>
+              <Button variant="danger" onClick={() => removeFromCart(item)}>-</Button>
+            </Col>
+            <Col md={2}>
+              <Button variant="success" onClick={() => addToCart(item)}>+</Button>
+            </Col>
             </Row>
           ))}
         </ListGroup>
