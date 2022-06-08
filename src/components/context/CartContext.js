@@ -28,8 +28,8 @@ const CartProvider = ({children}) => {
         setCart(newCart)
     }
 
-    const deleteAll = () => {
-        setCart=([])
+    const deleteAll = () =>{
+        setCart([])
     }
 
     const isInCart = (id) => {

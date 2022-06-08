@@ -19,16 +19,13 @@ const ItemDetail = ({item}) => {
 
   const onAdd = (quantityToAdd) => {
     console.log('agregar al carrito el producto')
-
     console.log(quantityToAdd)
-
     setQuantity(quantityToAdd)
     //console.log(item)
     setGoToCart(true)
-
-    addToCart(item, quantity)
-       
+    addToCart(item, quantity)   
   }
+  
   
   return (
       <div className="container">

@@ -3,19 +3,14 @@ import { Card, ListGroup, Button, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../components/context/CartContext'
 import { AiFillDelete } from 'react-icons/ai'
-import ItemCounter from '../../components/ItemCounter/ItemCounter'
 
-const Cart = (item) => {
-  const { nombre, imagen, precio, stock } = item
+const Cart = () => {
+  
   const volver = useNavigate()
   const { addToCart, removeFromCart, deleteAll, isInCart, cart } = useContext(CartContext)
   console.log(CartContext)
 
-  const onAdd = (quantityToAdd) => setQuantity(quantityToAdd)
-
-  const [quantity, setQuantity] = useState(0)
-
-  const [total, setTotal] = useState()
+  const [total, setTotal] = useState(isInCart)
 
   
 
@@ -33,8 +28,12 @@ const Cart = (item) => {
               <Col md={1}>{item.nombre}</Col>
               <Col md={1}>{item.precio}</Col>
               <Col md={1}>
-                <ItemCounter initial={item.quantity} stock={item.stock} onAdd={onAdd} />
-              </Col> 
+                <Button variant="danger" >-</Button>
+              </Col>
+              <Col md={1}><span>{item.quantity}</span></Col>
+              <Col md={1}>
+                <Button variant="success" >+</Button>
+              </Col>
               <Col md={1}>
                 <AiFillDelete
                   fontSize="20px"
@@ -50,6 +49,7 @@ const Cart = (item) => {
         <span className='title'>subtotal({cart.length}) items</span>
         <span style={{ fontWeight: 700, fontSize: 20 }}>total:${total} </span>
         <Button type='button' disable={cart.length === 0}>terminar compra</Button>
+        <Button variant='danger' onClick={() => deleteAll()}>borrar todo</Button>
         <Button btn btn-info onClick={() => volver("/productos")}>volver a Productos</Button>
       </div>
     </div>
@@ -58,3 +58,4 @@ const Cart = (item) => {
 }
 
 export default Cart
+
