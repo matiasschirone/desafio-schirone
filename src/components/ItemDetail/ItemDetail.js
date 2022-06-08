@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import { CartContext } from '../context/CartContext'
 
@@ -25,6 +25,8 @@ const ItemDetail = ({item}) => {
     setQuantity(quantityToAdd)
     //console.log(item)
     setGoToCart(true)
+
+    addToCart(item, quantity)
        
   }
   
@@ -41,7 +43,7 @@ const ItemDetail = ({item}) => {
               {precio}
             </Card.Text>
           </Card.Body>
-          {goToCart ? <Button btn btn-primary onClick={() => addToCart(item, quantity)}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
+          {goToCart ? <Button btn btn-primary onClick={()=>volver("/Cart")}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
           <Button btn btn-info onClick={()=>volver("/productos")}>volver a Productos</Button>
         </Card>
       </div>

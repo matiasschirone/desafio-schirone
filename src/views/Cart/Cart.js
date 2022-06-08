@@ -3,12 +3,17 @@ import { Card, ListGroup, Button, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../components/context/CartContext'
 import { AiFillDelete } from 'react-icons/ai'
+import ItemCounter from '../../components/ItemCounter/ItemCounter'
 
 const Cart = (item) => {
-  const { nombre, imagen, precio } = item
+  const { nombre, imagen, precio, stock } = item
   const volver = useNavigate()
   const { addToCart, removeFromCart, deleteAll, isInCart, cart } = useContext(CartContext)
   console.log(CartContext)
+
+  const onAdd = (quantityToAdd) => setQuantity(quantityToAdd)
+
+  const [quantity, setQuantity] = useState(0)
 
   const [total, setTotal] = useState()
 
@@ -28,17 +33,13 @@ const Cart = (item) => {
               <Col md={1}>{item.nombre}</Col>
               <Col md={1}>{item.precio}</Col>
               <Col md={1}>
-                <Button variant="danger" onClick={() => removeFromCart(item)}>-</Button>
-              </Col>
-              <Col md={1}><span>{item.quantity}</span></Col>
-              <Col md={1}>
-                <Button variant="success" onClick={() => addToCart(item)}>+</Button>
-              </Col>
+                <ItemCounter initial={item.quantity} stock={item.stock} onAdd={onAdd} />
+              </Col> 
               <Col md={1}>
                 <AiFillDelete
                   fontSize="20px"
-                  style={{ curson: "poiter" }}
-                  onClick={() => deleteAll(item)}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => removeFromCart(item.id)}
                 />
               </Col>
             </Row>
