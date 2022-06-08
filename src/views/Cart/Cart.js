@@ -24,7 +24,7 @@ const Cart = (item) => {
   
 
   useEffect(() => {
-    setTotal(cart.reduce((acc, item) => acc + item.precio, 0))
+    setTotal(cart.reduce((acc, item) => acc + Number(item.precio)*item.quantity, 0))
   }, [cart])
   
 
@@ -41,6 +41,7 @@ const Cart = (item) => {
             <Col md={2}>
               <Button variant="danger" onClick={() => removeFromCart(item)}>-</Button>
             </Col>
+            <Col md={2}><span>{item.quantity}</span></Col>
             <Col md={2}>
               <Button variant="success" onClick={() => addToCart(item)}>+</Button>
             </Col>
