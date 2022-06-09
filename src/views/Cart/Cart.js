@@ -7,12 +7,10 @@ import { AiFillDelete } from 'react-icons/ai'
 const Cart = () => {
   
   const volver = useNavigate()
-  const { addToCart, removeFromCart, deleteAll, isInCart, cart } = useContext(CartContext)
+  const { addToCart, removeFromCart, deleteAll, isInCart, discountProduct, cart } = useContext(CartContext)
   console.log(CartContext)
 
   const [total, setTotal] = useState(isInCart)
-
-  
 
   useEffect(() => {
     setTotal(cart.reduce((acc, item) => acc + Number(item.precio) * item.quantity, 0))
@@ -24,15 +22,15 @@ const Cart = () => {
         <ListGroup>
           {cart.map(item => (
             <Row>
-              <Col md={2}>{item.imagen}</Col>
-              <Col md={1}>{item.nombre}</Col>
+              <Col md={2}><img src={item.imagen} alt={item.nombre}/></Col>
+              <Col md={1}>{item.nombre}</Col> 
               <Col md={1}>{item.precio}</Col>
               <Col md={1}>
-                <Button variant="danger" >-</Button>
+                <Button variant="danger" onClick={()=>discountProduct(item)}>-</Button>
               </Col>
               <Col md={1}><span>{item.quantity}</span></Col>
               <Col md={1}>
-                <Button variant="success" >+</Button>
+                <Button variant="success" onClick={() => addToCart(item, 1)}>+</Button>
               </Col>
               <Col md={1}>
                 <AiFillDelete

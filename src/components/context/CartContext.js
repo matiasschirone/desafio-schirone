@@ -23,6 +23,18 @@ const CartProvider = ({children}) => {
         }
       }
 
+    const discountProduct = (item) =>{
+      if(isInCart(item.id)) {
+        const newCart = cart.map(cartItem => {
+          if(cartItem.id === item.id) {
+            cartItem.quantity--
+          }
+          return cartItem
+        })
+        setCart(newCart)
+      }
+    }  
+
     const removeFromCart = (id) =>{
         const newCart = cart.filter((carItem) => carItem.id !== id);
         setCart(newCart)
@@ -42,6 +54,7 @@ const CartProvider = ({children}) => {
             removeFromCart,
             deleteAll,
             isInCart,
+            discountProduct,
             cart,
         }}>{children}</Provider>
     )

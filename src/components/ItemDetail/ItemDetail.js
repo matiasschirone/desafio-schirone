@@ -7,7 +7,7 @@ import { CartContext } from '../context/CartContext'
 
 
 const ItemDetail = ({item}) => {
-  const {addToCart, isInCart} = useContext(CartContext); 
+  const {addToCart} = useContext(CartContext); 
 
   const {nombre, imagen, precio, stock, categoria} = item
 
@@ -15,15 +15,12 @@ const ItemDetail = ({item}) => {
 
   const volver = useNavigate()
 
-  const [quantity, setQuantity] = useState(0)
 
   const onAdd = (quantityToAdd) => {
-    console.log('agregar al carrito el producto')
-    console.log(quantityToAdd)
-    setQuantity(quantityToAdd)
-    //console.log(item)
+    //console.log('agregar al carrito el producto')
+    //console.log(quantityToAdd)
     setGoToCart(true)
-    addToCart(item, quantity)   
+    addToCart(item, quantityToAdd)   
   }
   
   
