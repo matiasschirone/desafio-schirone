@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState, useReducer} from 'react'
-import { Card, ListGroup, Button, Row, Col } from 'react-bootstrap'
+import React, { useContext, useEffect, useState} from 'react'
+import { ListGroup, Button, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../components/context/CartContext'
 import { AiFillDelete } from 'react-icons/ai'

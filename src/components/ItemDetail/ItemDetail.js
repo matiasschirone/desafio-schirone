@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import { CartContext } from '../context/CartContext'
 

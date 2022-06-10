@@ -1,6 +1,4 @@
 import { Card } from 'react-bootstrap'
-import AddButton from '../AddButton/AddButton'
-import { products } from '../data/productos'
 import { useNavigate } from 'react-router-dom'
 
 export default function Item({ producto }) {

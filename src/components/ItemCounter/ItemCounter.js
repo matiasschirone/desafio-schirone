@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, span } from 'react-bootstrap'
+
 
 const ItemCounter = ({stock, initial, onAdd}) => {
     const [contador, setContador]=useState(initial)

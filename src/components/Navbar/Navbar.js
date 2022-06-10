@@ -5,13 +5,7 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 export default function Nabvar() {
 
-    const linkStyle = {
-        margin: 0,
-        padding: 0,
-        display: "flex",
-        justifycontent: "space-between",
-    }
-
+    
     return (
 
         <Navbar bg="light" expand="lg">
