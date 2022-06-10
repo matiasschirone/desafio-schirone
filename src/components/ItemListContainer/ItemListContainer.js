@@ -37,49 +37,11 @@ export default function ItemListContainer({ title }) {
 
             })
         }
-        //producto singular
-
-        const productRef = doc(db, "products", "5DpKlW2Mjv279Ezb9jhv")
-        getDoc(productRef).then(snapshot => {
-            if (snapshot.exists()) {
-                console.log(snapshot.data())
-            }
-        })
-
-
-
-
+       
     }, [categoria])
 
 
-    {/*useEffect(() => {
-        const db = getFirestore()
-        if(categoria) {
-            const q = query(
-                collection(db, "productos"),
-                where("categoria", "==", categoria)
-            );
-            getDocs(q).then((snapshots) => {
-                if(snapshots.size === 0) {
-                    console.log("No hay productos");
-                }
-                setProductList(snapshots.docs.map((doc) => ({id: doc.id, ...doc.data()})));
-            });
-        } else {
-            const productsRef = collection(db, "productos");
-            getDocs(productsRef).then((snapshots) => {
-                if(snapshots.size === 0) {
-                    console.log("No hay productos");
-                }
-                setProductList(snapshots.docs.map((doc) => ({id: doc.id, ...doc.data()})));
-            });
-        }
-        
-    }, [categoria]);*/}
-
-
-
-
+   
     return (
         <div style={ItemStyle}>
             <h3>{title}</h3>

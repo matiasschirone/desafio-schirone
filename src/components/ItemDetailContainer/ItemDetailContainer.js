@@ -1,23 +1,31 @@
 import React, { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { getProducts } from "../data/productos"
+//import { getProducts } from "../data/productos"
 import { useParams } from "react-router-dom"
-import {getFirestore, doc, getDoc} from "firebase/firestore"
+import { getFirestore, getDoc, doc} from "firebase/firestore"
 
-const ItemDetailContainer = (categoria, setProductList) => {
+const ItemDetailContainer = () => {
     const [item,setItem]= useState({})
     const [carganding, setCarganding]= useState(false)
     const {id} = useParams()
 
+   
+ 
     useEffect(()=>{
+
         const db = getFirestore()
-        const productRef = doc(db, "products", categoria)
+
+        const productRef = doc(db, "products", id)
         getDoc(productRef).then(snapshot => {
             if (snapshot.exists()) {
-                setProductList({id: snapshot.id, ...snapshot.data()})
+                console.log(snapshot.id)
+                console.log(snapshot.data())
+                console.log({id: snapshot.id, ...snapshot.data()})
+                setItem({id: snapshot.id, ...snapshot.data()})
             }
         })
-    }, [categoria])
+        
+    }, [])
    
 
     return (
