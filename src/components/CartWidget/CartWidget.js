@@ -5,7 +5,7 @@ import { CartContext } from "../context/CartContext";
 
 
 function CartWidget(){
-    const {cart} =useContext(CartContext)
+    const {cartQuantity} =useContext(CartContext)
     const CartStyle={
         margin: 10,
         padding:10,
@@ -16,7 +16,7 @@ function CartWidget(){
           <Link to="/Cart">
            <MdOutlineShoppingCart/> 
            <span className="badge">
-               {cart.length}
+               {cartQuantity() || ''}
            </span>
            </Link>
         </div>
