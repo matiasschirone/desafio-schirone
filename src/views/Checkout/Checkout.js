@@ -1,13 +1,17 @@
 import React, { useContext } from 'react'
-import { getFirestore, doc, getDoc, updateDoc, addDoc, runTransaction, collection, } from 'firebase/firestore'
+import { getFirestore, addDoc, collection, } from 'firebase/firestore'
 import { CartContext } from '../../components/context/CartContext'
+import { Button } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
     const [data, setData] = React.useState()
     console.log(data)
-    const [orderId, setOrderId] = React.useState()
+    const [orderId, setOrderId] = React.useState(false)
     console.log(orderId)
-    const { cart } = useContext(CartContext)
+    const { cart, deleteAll } = useContext(CartContext)
+    const navegar = useNavigate()
 
     const order = {
         buyer: data,
@@ -28,43 +32,32 @@ const Checkout = () => {
         const productsCollection = collection(db, "productos")
         await addDoc(ordersCollection, order).then(({ id }) => {
             setOrderId(id)
-            updateProducts()
+            deleteAll()
         })
     }
 
-
-    const updateProducts = async () => {
-        const db = getFirestore()
-        cart.forEach(async (item) => {
-            const productRef = doc(db, `productos`, item.id)
-            await runTransaction(db, async (transaction) => {
-                const transfDoc = await transaction.get(productRef);
-                if (!transfDoc.exists()) {
-                    console.error("El documento no existe")
-                }
-                const newStock = transfDoc.data().stock - item.quantity;
-                transaction.update(productRef, { stock: newStock });
-            });
-        })
-    }
 
     return (
         <div className="checkout">
-            <form onSubmit={handleSubmit}>
+            {!orderId
+            ?<Form onSubmit={handleSubmit}>
                 <h1>Checkout</h1>
                 <input
+                    requiered
                     type="text"
                     name="name"
                     placeholder="Name"
                     onChange={handleChange}
                 />
                 <input
+                    requiered
                     type="email"
                     name="email"
                     placeholder="Email"
                     onChange={handleChange}
                 />
                 <input
+                    required
                     type="phone"
                     name="phone"
                     placeholder="Phone"
@@ -74,7 +67,12 @@ const Checkout = () => {
                     type="submit"
                     value="Finalizar compra"
                 />
-            </form>
+            </Form>
+            :<>
+            <p>Muchas gracias por su compra</p>
+            <p>Tu Orden es : {orderId}</p>
+            <Button onClick={()=>navegar('/')}>volver</Button>
+            </>}
         </div>
     )
 }

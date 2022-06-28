@@ -18,11 +18,11 @@ function App() {
        <Navbar/>
        <Routes>
          <Route exact path="/"element={<Home/>}/>
-         <Route exact path="/Cart"element={<Cart/>}/>
+         <Route exact path="/cart"element={<Cart/>}/>
          <Route exact path="/productos"element={<ItemListContainer title="Lista de Productos"/>}/>
          <Route exact path="/categoria/:categoria"element={<ItemListContainer title="Lista de Productos"/>}/>
          <Route exact path="/detalle/:id"element={<ItemDetailContainer/>}/>
-         <Route exact path="/Checkout"element={<Checkout/>}/>
+         <Route exact path="/checkout"element={<Checkout/>}/>
        </Routes>
        </CartProvider>
     </BrowserRouter>

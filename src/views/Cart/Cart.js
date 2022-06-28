@@ -47,8 +47,8 @@ const Cart = () => {
    <div className='calcularProducts'>
      <span className='title'>subtotal({cart.length}) items</span>
      <span style={{ fontWeight: 700, fontSize: 20 }}>total:${total} </span>
-     <Button type='button' disable={cart.length === 0}>terminar compra</Button>
-     <Button variant='danger' onClick={() => deleteAll()}>borrar todo</Button>
+     <Button type='button' onClick={()=>volver('/checkout')}>terminar compra</Button>
+     <Button variant='danger' onClick={deleteAll}>borrar todo</Button>
      <Button btn btn-info onClick={() => volver("/productos")}>volver a Productos</Button>
    </div>
  </div>

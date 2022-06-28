@@ -5,6 +5,7 @@ const Home = () => {
     <div>
         <h1>Shop Musical</h1>
     </div>
+    
   )
 }
 
