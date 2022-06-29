@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
-import { getFirestore, getDocs, doc, where, query, collection, getDoc } from "firebase/firestore"
+import { getFirestore, getDocs, where, query, collection } from "firebase/firestore"
 import { useParams } from "react-router-dom";
 
 export default function ItemListContainer({ title }) {
     const [productList, setProductList] = useState([])
-    const [cargando, setCargando] = useState(false)
     const { categoria } = useParams()
 
     const ItemStyle = {
@@ -34,18 +33,14 @@ export default function ItemListContainer({ title }) {
                     console.log("no hay productos")
                 }
                 setProductList(snapshots.docs.map(doc => ({ id: doc.id, ...doc.data() })))
-
             })
-        }
-       
+        }      
     }, [categoria])
 
-
-   
     return (
         <div style={ItemStyle}>
             <h3>{title}</h3>
-            {cargando ? <p>cargando....</p> : <ItemList productList={productList} />}
+            <ItemList productList={productList} />
         </div>
     )
 }

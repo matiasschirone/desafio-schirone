@@ -14,6 +14,5 @@ export default function Item({ producto }) {
                 </Card.Body>
            <button className="btn btn.success" onClick={()=>navegar(`/detalle/${producto.id}`)}>Ver mas</button>
         </div>
-
     )
 }

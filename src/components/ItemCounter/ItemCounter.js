@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 const ItemCounter = ({stock, initial, onAdd}) => {
     const [contador, setContador]=useState(initial)
     const sumar = () =>{
@@ -18,8 +17,7 @@ const ItemCounter = ({stock, initial, onAdd}) => {
         <div>
             <button className='btn btn-danger' onClick={restar}>-</button>
             <span className='btn btn-light px-5'>{contador}</span>
-            <button className='btn btn-success' onClick={sumar}>+</button>
-            
+            <button className='btn btn-success' onClick={sumar}>+</button>   
         </div>
         <button className='btn btn-primary m-2' onClick={() => onAdd(contador)}>comprar</button>
     </div>

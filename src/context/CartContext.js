@@ -2,12 +2,9 @@ import React, { createContext, useState } from "react";
 
 const CartContext = createContext();
 const { Provider } = CartContext
-
-
 const CartProvider = ({ children }) => {
 
   const [cart, setCart] = useState([])
-  //console.log(cart)
   const addToCart = (item, count) => {
     if (isInCart(item.id)) {
       const newCart = cart.map(cartItem => {

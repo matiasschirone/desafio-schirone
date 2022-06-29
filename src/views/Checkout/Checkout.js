@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import { getFirestore, addDoc, collection, } from 'firebase/firestore'
+import { getFirestore, addDoc, collection, Timestamp } from 'firebase/firestore'
 import { CartContext } from '../../components/context/CartContext'
 import { Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 import { useNavigate } from 'react-router-dom'
+import CompletedOrder from '../../components/CompletedOrder/CompletedOrder'
 
 const Checkout = () => {
     const [data, setData] = React.useState()
@@ -16,7 +17,8 @@ const Checkout = () => {
     const order = {
         buyer: data,
         items: cart,
-        total: 100,
+        status: "generada",
+        date: Timestamp.fromDate(new Date()),
     }
 
     const handleChange = (event) => {
@@ -29,7 +31,6 @@ const Checkout = () => {
 
         const db = getFirestore()
         const ordersCollection = collection(db, "orders")
-        const productsCollection = collection(db, "productos")
         await addDoc(ordersCollection, order).then(({ id }) => {
             setOrderId(id)
             deleteAll()
@@ -42,12 +43,21 @@ const Checkout = () => {
             {!orderId
             ?<Form onSubmit={handleSubmit}>
                 <h1>Checkout</h1>
-                <Form. Group id='username'>
+                <Form. Group id='userName'>
                 <Form. Control
                     requiered
                     type="text"
                     name="name"
                     placeholder="Name"
+                    onChange={handleChange}
+                />
+                </Form. Group>
+                <Form. Group id='lastName'>
+                <Form. Control
+                    requiered
+                    type="text"
+                    name="lastname"
+                    placeholder="lastName"
                     onChange={handleChange}
                 />
                 </Form. Group>
@@ -74,9 +84,10 @@ const Checkout = () => {
                 </Button>
             </Form>
             :<>
-            <p>Muchas gracias por su compra</p>
-            <p>Tu Orden es : {orderId}</p>
+            <div>
+            <CompletedOrder orderId={orderId} order={order} />
             <Button onClick={()=>navegar('/')}>volver</Button>
+            </div>
             </>}
         </div>
     )

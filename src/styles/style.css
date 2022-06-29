@@ -12,7 +12,7 @@ h1{
 li{
     display: block;
     padding: 15px 20px;
-    color: aliceblue;
+    color: rgb(4, 8, 12);
     cursor: pointer;
 }
 
@@ -38,11 +38,10 @@ button{
     justify-content: center;
     align-items: center;
     align-content: center;
-    background-color: rgb(14, 2, 2);
-    color: rgb(127, 131, 131);
+    background-color: rgb(192, 189, 189);
+    color: rgb(12, 14, 14);
     border-radius: 50%;
 }
-
 
 .cartProducts{
     display: flex;
@@ -112,4 +111,23 @@ div.list-group{
     width: 80%;
     border-radius: 10px;
     border: 1px solid black;
+}
+.ordenCompra{
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.section-title h2{
+    color: rgb(4, 8, 12);
+    text-align: center;
+    font-size: 2rem;
+}
+.datos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    width: 80%;
 }

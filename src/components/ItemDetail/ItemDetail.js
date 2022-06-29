@@ -4,25 +4,15 @@ import { useNavigate } from 'react-router-dom'
 import ItemCounter from '../ItemCounter/ItemCounter'
 import { CartContext } from '../context/CartContext'
 
-
-
 const ItemDetail = ({item}) => {
   const {addToCart} = useContext(CartContext); 
-
   const {nombre, imagen, precio, stock, categoria} = item
-
   const [goToCart, setGoToCart] = useState(false)
-
   const volver = useNavigate()
-
-
   const onAdd = (quantityToAdd) => {
-    //console.log('agregar al carrito el producto')
-    //console.log(quantityToAdd)
     setGoToCart(true)
     addToCart(item, quantityToAdd)   
   }
-  
   
   return (
       <div className="container">
