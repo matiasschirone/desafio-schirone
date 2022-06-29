@@ -10,15 +10,15 @@ import { Card} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
-const Home = (item, producto) => {
+const Home = () => {
   const [products, setProducts] = useState([]);
   const navegar = useNavigate()
-  const {nombre, imagen, precio, stock, categoria} = item
+  
 
   useEffect(() => {
     const db = getFirestore();
 
-    const q = query(collection(db, "products"), where("precio", "<=", 100000));
+    const q = query(collection(db, "products"), where("precio", "<=", 120000));
     getDocs(q).then((snapshot) => {
       if (snapshot.size === 0) {
         console.log("No hay productos");
@@ -28,11 +28,24 @@ const Home = (item, producto) => {
   }, []);
 
   return (
-    
+    <>
       <div>
         <h1>Shop Musical</h1>
         <h2>Ofertas destacadas</h2>
       </div>
+      {products.map((product) => (
+        <Card style={{ width: "18rem" }}>
+        <Card key={product.id}>
+          <Card.Img variant="top" src={product.imagen} alt={product.nombre} style={{ maxWidth: "100% !important" }} className="card-img-top"  />
+          <Card.Body>
+            <Card.Title>{product.nombre}</Card.Title>
+            <Card.Text>{product.precio}</Card.Text>
+            <button className="btn btn.success" onClick={()=>navegar(`/detalle/${product.id}`)}>Ver mas</button>
+          </Card.Body>
+        </Card>
+        </Card>
+      ))}
+    </>
      
   );
 };
