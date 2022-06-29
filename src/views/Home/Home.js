@@ -6,7 +6,7 @@ import {
   query,
   collection,
 } from "firebase/firestore";
-import { Card} from "react-bootstrap";
+import { Card, Row} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,7 +33,8 @@ const Home = () => {
         <h1>Shop Musical</h1>
         <h2>Ofertas destacadas</h2>
       </div>
-      {products.map((product) => (
+      <Row>
+      {products.map((product) => ( 
         <Card style={{ width: "18rem" }}>
         <Card key={product.id}>
           <Card.Img variant="top" src={product.imagen} alt={product.nombre} style={{ maxWidth: "100% !important" }} className="card-img-top"  />
@@ -43,8 +44,9 @@ const Home = () => {
             <button className="btn btn.success" onClick={()=>navegar(`/detalle/${product.id}`)}>Ver mas</button>
           </Card.Body>
         </Card>
-        </Card>
+        </Card> 
       ))}
+      </Row>
     </>
      
   );
