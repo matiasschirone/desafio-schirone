@@ -86,7 +86,7 @@ const Checkout = () => {
             :<>
             <div>
             <CompletedOrder orderId={orderId} order={order} />
-            <Button onClick={()=>navegar('/')}>volver</Button>
+            <Button variant='info' onClick={()=>navegar('/')}>volver</Button>
             </div>
             </>}
         </div>

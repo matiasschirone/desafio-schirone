@@ -1,4 +1,4 @@
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 export default function Item({ producto }) {
@@ -12,7 +12,7 @@ export default function Item({ producto }) {
                     <Card.Text>{producto.stock}</Card.Text>
                     <Card.Text>{producto.precio}</Card.Text>
                 </Card.Body>
-           <button className="btn btn.success" onClick={()=>navegar(`/detalle/${producto.id}`)}>Ver mas</button>
+           <Button variant='success' onClick={()=>navegar(`/detalle/${producto.id}`)}>Ver mas</Button>
         </div>
     )
 }

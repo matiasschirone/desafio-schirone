@@ -28,8 +28,8 @@ const ItemDetail = ({item}) => {
               {precio}
             </Card.Text>
           </Card.Body>
-          {goToCart ? <Button btn btn-primary onClick={()=>volver("/Cart")}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
-          <Button btn btn-info onClick={()=>volver("/productos")}>volver a Productos</Button>
+          {goToCart ? <Button variant='primary' onClick={()=>volver("/Cart")}>ir al carrito</Button> : <ItemCounter initial={1} stock={stock} onAdd={onAdd}/>}
+          <Button variant='info' onClick={()=>volver("/productos")}>volver a Productos</Button>
         </Card>
       </div>
   )
