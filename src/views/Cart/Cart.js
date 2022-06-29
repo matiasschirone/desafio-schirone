@@ -22,8 +22,8 @@ const Cart = () => {
    <div className='CartProducts'>
      <ListGroup>
        {cart.map(item => (
-         <Row>
-           <Col md={2}><img src={item.imagen} alt={item.nombre}/></Col>
+         <Row className='productPay'>
+           <Col md={3}><img src={item.imagen} alt={item.nombre}/></Col>
            <Col md={1}>{item.nombre}</Col> 
            <Col md={1}>{item.precio}</Col>
            <Col md={1}>

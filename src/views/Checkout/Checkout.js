@@ -42,31 +42,36 @@ const Checkout = () => {
             {!orderId
             ?<Form onSubmit={handleSubmit}>
                 <h1>Checkout</h1>
-                <input
+                <Form. Group id='username'>
+                <Form. Control
                     requiered
                     type="text"
                     name="name"
                     placeholder="Name"
                     onChange={handleChange}
                 />
-                <input
+                </Form. Group>
+                <Form. Group id='email'>
+                <Form. Control
                     requiered
                     type="email"
                     name="email"
                     placeholder="Email"
                     onChange={handleChange}
                 />
-                <input
+                </Form. Group>
+                <Form. Group id='phone'>
+                <Form. Control
                     required
                     type="phone"
                     name="phone"
                     placeholder="Phone"
                     onChange={handleChange}
                 />
-                <input
-                    type="submit"
-                    value="Finalizar compra"
-                />
+                </Form. Group>
+                <Button variant="primary" type="submit">            
+                 Finalizar compra
+                </Button>
             </Form>
             :<>
             <p>Muchas gracias por su compra</p>
