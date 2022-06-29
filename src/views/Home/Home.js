@@ -31,6 +31,7 @@ const Home = () => {
     <>
       <div>
         <h1>Shop Musical</h1>
+        <p> Aproveche los productos destacados</p>
       </div>
       <Row>
       {products.map((product) => ( 

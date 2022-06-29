@@ -3,11 +3,11 @@ import Navbar from "./components/Navbar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import { CartProvider } from "./components/context/CartContext";
 import Home from "./views/Home/Home";
 import Cart from "./views/Cart/Cart";
 import Checkout from "./views/Checkout/Checkout";
 import Contactos from "./views/Contactos/Contactos";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (

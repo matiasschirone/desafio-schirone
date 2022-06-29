@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState} from 'react'
 import { ListGroup, Button, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from '../../components/context/CartContext'
+import { CartContext } from '../../context/CartContext'
 import { AiFillDelete } from 'react-icons/ai'
 
 const Cart = () => {

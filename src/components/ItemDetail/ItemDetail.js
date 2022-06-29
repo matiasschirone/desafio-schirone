@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 import ItemCounter from '../ItemCounter/ItemCounter'
-import { CartContext } from '../context/CartContext'
+
 
 const ItemDetail = ({item}) => {
   const {addToCart} = useContext(CartContext); 

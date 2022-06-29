@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { getFirestore, addDoc, collection, Timestamp } from 'firebase/firestore'
-import { CartContext } from '../../components/context/CartContext'
 import { Button } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 import { useNavigate } from 'react-router-dom'
-import CompletedOrder from '../../components/CompletedOrder/CompletedOrder'
+import { CartContext } from '../../context/CartContext'
+import CompletedOrder from '../CompletedOrder/CompletedOrder'
 
 const Checkout = () => {
     const [data, setData] = React.useState()
