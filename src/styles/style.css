@@ -9,6 +9,13 @@ h1{
     text-align: center;
     font-size: 3rem;
 }
+
+div p{
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 li{
     display: block;
     padding: 15px 20px;
