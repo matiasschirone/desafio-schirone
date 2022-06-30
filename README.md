@@ -1,6 +1,6 @@
 ## Gif del proceso de compra
-[gif]()
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/96154296/176574028-8ef08605-3b3d-43df-94f2-2a5347de18b6.gif)
+https://user-images.githubusercontent.com/96154296/176574601-827116fc-4ed6-49bd-94ad-f3a298cd33e0.mp4
+
 
 ## Instalación
 Para poder fucionar se deben instalar las dependencias utilizando npm para instalar el proyecto.
